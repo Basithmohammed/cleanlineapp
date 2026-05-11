@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>Cleanline App</title>
@@ -11,8 +11,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
   <style>
 
@@ -198,11 +196,6 @@
       align-items:center;
     }
 
-    .price{
-      color:#1e88e5;
-      font-weight:700;
-    }
-
     .book-btn{
       background:linear-gradient(135deg,#1e88e5,#43a047);
       color:white;
@@ -262,15 +255,6 @@
       margin-top:10px;
     }
 
-    .success-message{
-      margin-top:15px;
-      background:#d4edda;
-      color:#155724;
-      padding:14px;
-      border-radius:12px;
-      display:none;
-    }
-
     .bottom-nav{
       position:fixed;
       bottom:0;
@@ -328,7 +312,9 @@
 
       <div class="top-row">
 
-        <div class="logo">Cleanline</div>
+        <div class="logo">
+          Cleanline
+        </div>
 
         <div class="header-right">
 
@@ -344,7 +330,7 @@
 
           </div>
 
-          <div class="profile" id="profileBtn">
+          <div class="profile">
             👤
           </div>
 
@@ -391,7 +377,7 @@
 
       </div>
 
-      <div class="services" id="servicesContainer">
+      <div class="services">
 
         <!-- SERVICE 1 -->
         <div class="service-card">
@@ -407,10 +393,6 @@
           </p>
 
           <div class="service-bottom">
-
-            <div class="price">
-              
-            </div>
 
             <button class="book-btn">
               Book
@@ -435,10 +417,6 @@
 
           <div class="service-bottom">
 
-            <div class="price">
-              
-            </div>
-
             <button class="book-btn">
               Book
             </button>
@@ -462,10 +440,6 @@
 
           <div class="service-bottom">
 
-            <div class="price">
-              
-            </div>
-
             <button class="book-btn">
               Book
             </button>
@@ -488,10 +462,6 @@
           </p>
 
           <div class="service-bottom">
-
-            <div class="price">
-              
-            </div>
 
             <button class="book-btn">
               Book
@@ -610,10 +580,6 @@
             Confirm Booking
           </button>
 
-          <div class="success-message" id="successMessage">
-            Booking request sent successfully.
-          </div>
-
         </form>
 
       </div>
@@ -642,7 +608,7 @@
             </h4>
 
             <p>
-              +966 500 000 000
+              0575852413
             </p>
 
           </div>
@@ -650,11 +616,11 @@
           <div style="background:#eef3f8; padding:15px; border-radius:15px;">
 
             <h4 id="emailSupport">
-              ✉️ Email Support
+              ✉️ WhatsApp Support
             </h4>
 
             <p>
-              support@cleanline.com
+              0575852413
             </p>
 
           </div>
@@ -710,7 +676,7 @@
 
       </div>
 
-      <div class="nav-item" id="profileNavBtn">
+      <div class="nav-item">
 
         <div>👤</div>
 
@@ -726,53 +692,9 @@
 
   <script>
 
-    // EMAILJS INIT
-    emailjs.init('YOUR_PUBLIC_KEY');
-
-    // FORM
-    const bookingForm = document.getElementById('bookingForm');
-    const successMessage = document.getElementById('successMessage');
-
-    bookingForm.addEventListener('submit', function(e){
-
-      e.preventDefault();
-
-      const templateParams = {
-
-        customer_name: document.getElementById('name').value,
-        customer_email: document.getElementById('email').value,
-        customer_phone: document.getElementById('phone').value,
-        service: document.getElementById('service').value,
-        booking_date: document.getElementById('date').value,
-        address: document.getElementById('address').value,
-
-      };
-
-      emailjs.send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
-        templateParams
-      )
-      .then(function(){
-
-        successMessage.style.display = 'block';
-
-        bookingForm.reset();
-
-        setTimeout(() => {
-
-          successMessage.style.display = 'none';
-
-        }, 4000);
-
-      })
-      .catch(function(){
-
-        alert('Booking failed.');
-
-      });
-
-    });
+    // YOUR WHATSAPP NUMBER
+    // SAUDI FORMAT WITHOUT +
+    const whatsappNumber = "966575852413";
 
     // BOOK BUTTONS
 
@@ -800,10 +722,91 @@
 
     });
 
-    // VIEW ALL
+    // FORM SUBMIT -> WHATSAPP
 
-    const viewAllBtn = document.getElementById('viewAllBtn');
-    const hiddenServices = document.querySelectorAll('.hidden-service');
+    const bookingForm =
+      document.getElementById('bookingForm');
+
+    bookingForm.addEventListener('submit', function(e){
+
+      e.preventDefault();
+
+      const name =
+        document.getElementById('name').value;
+
+      const email =
+        document.getElementById('email').value;
+
+      const phone =
+        document.getElementById('phone').value;
+
+      const service =
+        document.getElementById('service').value;
+
+      const date =
+        document.getElementById('date').value;
+
+      const address =
+        document.getElementById('address').value;
+
+      const isArabic =
+        document.body.classList.contains('arabic');
+
+      let message = '';
+
+      if(isArabic){
+
+        message =
+`طلب حجز جديد
+
+الاسم: ${name}
+
+البريد الإلكتروني: ${email}
+
+رقم الهاتف: ${phone}
+
+الخدمة: ${service}
+
+تاريخ الحجز: ${date}
+
+العنوان: ${address}`;
+
+      }else{
+
+        message =
+`New Booking Request
+
+Full Name: ${name}
+
+Email: ${email}
+
+Phone: ${phone}
+
+Service: ${service}
+
+Booking Date: ${date}
+
+Address: ${address}`;
+
+      }
+
+      // OPEN WHATSAPP DIRECTLY
+      const whatsappURL =
+        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+      window.location.href = whatsappURL;
+
+      bookingForm.reset();
+
+    });
+
+    // VIEW ALL SERVICES
+
+    const viewAllBtn =
+      document.getElementById('viewAllBtn');
+
+    const hiddenServices =
+      document.querySelectorAll('.hidden-service');
 
     let expanded = false;
 
@@ -813,9 +816,8 @@
 
       hiddenServices.forEach(service => {
 
-        service.style.display = expanded
-          ? 'block'
-          : 'none';
+        service.style.display =
+          expanded ? 'block' : 'none';
 
       });
 
@@ -835,16 +837,21 @@
 
     // SEARCH
 
-    const searchInput = document.getElementById('searchInput');
-    const allServiceCards = document.querySelectorAll('.service-card');
+    const searchInput =
+      document.getElementById('searchInput');
+
+    const allServiceCards =
+      document.querySelectorAll('.service-card');
 
     searchInput.addEventListener('keyup', () => {
 
-      const value = searchInput.value.toLowerCase();
+      const value =
+        searchInput.value.toLowerCase();
 
       allServiceCards.forEach(card => {
 
-        const title = card.querySelector('h4')
+        const title =
+          card.querySelector('h4')
           .innerText
           .toLowerCase();
 
@@ -875,12 +882,20 @@
 
     // NAVIGATION
 
-    const homeBtn = document.getElementById('homeBtn');
-    const bookingBtn = document.getElementById('bookingBtn');
-    const supportBtn = document.getElementById('supportBtn');
+    const homeBtn =
+      document.getElementById('homeBtn');
 
-    const homeSection = document.getElementById('homeSection');
-    const supportSection = document.getElementById('supportSection');
+    const bookingBtn =
+      document.getElementById('bookingBtn');
+
+    const supportBtn =
+      document.getElementById('supportBtn');
+
+    const homeSection =
+      document.getElementById('homeSection');
+
+    const supportSection =
+      document.getElementById('supportSection');
 
     homeBtn.addEventListener('click', () => {
 
@@ -908,7 +923,8 @@
 
     // ACTIVE NAV
 
-    const navItems = document.querySelectorAll('.nav-item');
+    const navItems =
+      document.querySelectorAll('.nav-item');
 
     navItems.forEach(item => {
 
@@ -928,8 +944,11 @@
 
     // LANGUAGE SYSTEM
 
-    const enBtn = document.getElementById('enBtn');
-    const arBtn = document.getElementById('arBtn');
+    const enBtn =
+      document.getElementById('enBtn');
+
+    const arBtn =
+      document.getElementById('arBtn');
 
     function setLanguage(lang){
 
@@ -950,8 +969,6 @@
         document.body.classList.add('arabic');
         document.documentElement.lang = 'ar';
 
-        // HEADER
-
         document.getElementById('welcomeTitle').innerText =
           'احجز خدمة تنظيف احترافية';
 
@@ -960,8 +977,6 @@
 
         document.getElementById('searchInput').placeholder =
           'ابحث عن الخدمات...';
-
-        // TITLES
 
         document.getElementById('servicesHeading').innerText =
           'الخدمات';
@@ -972,12 +987,8 @@
         document.getElementById('supportHeading').innerText =
           'الدعم';
 
-        // VIEW ALL
-
         viewAllBtn.innerText =
           expanded ? 'عرض أقل' : 'عرض الكل';
-
-        // FORM
 
         document.getElementById('labelName').innerText =
           'الاسم الكامل';
@@ -999,11 +1010,6 @@
 
         document.getElementById('submitBtn').innerText =
           'تأكيد الحجز';
-
-        document.getElementById('successMessage').innerText =
-          'تم إرسال طلب الحجز بنجاح';
-
-        // SERVICES
 
         serviceTitles[0].innerText =
           'تنظيف المنازل';
@@ -1029,15 +1035,11 @@
         serviceDescs[3].innerText =
           'تنظيف بالبخار وإزالة البقع للأرائك والسجاد';
 
-        // BOOK BUTTONS
-
         bookBtns.forEach(btn => {
 
           btn.innerText = 'احجز';
 
         });
-
-        // SELECT OPTIONS
 
         serviceOptions[0].innerText =
           'اختر الخدمة';
@@ -1054,21 +1056,17 @@
         serviceOptions[4].innerText =
           'تنظيف الأرائك';
 
-        // SUPPORT
-
         document.getElementById('phoneSupport').innerText =
           '📞 الدعم الهاتفي';
 
         document.getElementById('emailSupport').innerText =
-          '✉️ دعم البريد الإلكتروني';
+          '✉️ دعم واتساب';
 
         document.getElementById('chatSupport').innerText =
           '💬 الدردشة المباشرة';
 
         document.getElementById('chatDescription').innerText =
           'متاح 24/7 لخدمة العملاء';
-
-        // NAVIGATION
 
         document.getElementById('navHome').innerText =
           'الرئيسية';
@@ -1087,8 +1085,6 @@
         document.body.classList.remove('arabic');
         document.documentElement.lang = 'en';
 
-        // HEADER
-
         document.getElementById('welcomeTitle').innerText =
           'Book Professional Cleaning';
 
@@ -1097,8 +1093,6 @@
 
         document.getElementById('searchInput').placeholder =
           'Search services...';
-
-        // TITLES
 
         document.getElementById('servicesHeading').innerText =
           'Services';
@@ -1109,12 +1103,8 @@
         document.getElementById('supportHeading').innerText =
           'Support';
 
-        // VIEW ALL
-
         viewAllBtn.innerText =
           expanded ? 'Show Less' : 'View All';
-
-        // FORM
 
         document.getElementById('labelName').innerText =
           'Full Name';
@@ -1136,11 +1126,6 @@
 
         document.getElementById('submitBtn').innerText =
           'Confirm Booking';
-
-        document.getElementById('successMessage').innerText =
-          'Booking request sent successfully.';
-
-        // SERVICES
 
         serviceTitles[0].innerText =
           'Home Cleaning';
@@ -1166,15 +1151,11 @@
         serviceDescs[3].innerText =
           'Steam cleaning and stain removal for sofas and carpets.';
 
-        // BOOK BUTTONS
-
         bookBtns.forEach(btn => {
 
           btn.innerText = 'Book';
 
         });
-
-        // OPTIONS
 
         serviceOptions[0].innerText =
           'Choose Service';
@@ -1191,21 +1172,17 @@
         serviceOptions[4].innerText =
           'Sofa Cleaning';
 
-        // SUPPORT
-
         document.getElementById('phoneSupport').innerText =
           '📞 Phone Support';
 
         document.getElementById('emailSupport').innerText =
-          '✉️ Email Support';
+          '✉️ WhatsApp Support';
 
         document.getElementById('chatSupport').innerText =
           '💬 Live Chat';
 
         document.getElementById('chatDescription').innerText =
           'Available 24/7 for customer assistance.';
-
-        // NAVIGATION
 
         document.getElementById('navHome').innerText =
           'Home';
@@ -1223,7 +1200,7 @@
 
     }
 
-    // BUTTON EVENTS
+    // LANGUAGE BUTTONS
 
     enBtn.addEventListener('click', () => {
 
