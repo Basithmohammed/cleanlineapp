@@ -379,7 +379,6 @@
 
       <div class="services">
 
-        <!-- SERVICE 1 -->
         <div class="service-card">
 
           <div class="service-icon">🏠</div>
@@ -402,7 +401,6 @@
 
         </div>
 
-        <!-- SERVICE 2 -->
         <div class="service-card">
 
           <div class="service-icon">✨</div>
@@ -425,7 +423,6 @@
 
         </div>
 
-        <!-- SERVICE 3 -->
         <div class="service-card hidden-service">
 
           <div class="service-icon">🏢</div>
@@ -448,7 +445,6 @@
 
         </div>
 
-        <!-- SERVICE 4 -->
         <div class="service-card hidden-service">
 
           <div class="service-icon">🛋️</div>
@@ -616,11 +612,11 @@
           <div style="background:#eef3f8; padding:15px; border-radius:15px;">
 
             <h4 id="emailSupport">
-              ✉️ WhatsApp Support
+              ✉️ Mail Support
             </h4>
 
             <p>
-              0575852413
+              support@cleanline.sa
             </p>
 
           </div>
@@ -692,11 +688,7 @@
 
   <script>
 
-    // YOUR WHATSAPP NUMBER
-    // SAUDI FORMAT WITHOUT +
     const whatsappNumber = "966575852413";
-
-    // BOOK BUTTONS
 
     const bookButtons = document.querySelectorAll('.book-btn');
     const serviceSelect = document.getElementById('service');
@@ -721,8 +713,6 @@
       });
 
     });
-
-    // FORM SUBMIT -> WHATSAPP
 
     const bookingForm =
       document.getElementById('bookingForm');
@@ -790,7 +780,6 @@ Address: ${address}`;
 
       }
 
-      // OPEN WHATSAPP DIRECTLY
       const whatsappURL =
         `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
@@ -799,8 +788,6 @@ Address: ${address}`;
       bookingForm.reset();
 
     });
-
-    // VIEW ALL SERVICES
 
     const viewAllBtn =
       document.getElementById('viewAllBtn');
@@ -834,8 +821,6 @@ Address: ${address}`;
       }
 
     });
-
-    // SEARCH
 
     const searchInput =
       document.getElementById('searchInput');
@@ -880,8 +865,6 @@ Address: ${address}`;
 
     });
 
-    // NAVIGATION
-
     const homeBtn =
       document.getElementById('homeBtn');
 
@@ -921,8 +904,6 @@ Address: ${address}`;
 
     });
 
-    // ACTIVE NAV
-
     const navItems =
       document.querySelectorAll('.nav-item');
 
@@ -941,8 +922,6 @@ Address: ${address}`;
       });
 
     });
-
-    // LANGUAGE SYSTEM
 
     const enBtn =
       document.getElementById('enBtn');
@@ -1060,7 +1039,7 @@ Address: ${address}`;
           '📞 الدعم الهاتفي';
 
         document.getElementById('emailSupport').innerText =
-          '✉️ دعم واتساب';
+          '✉️ دعم البريد الإلكتروني';
 
         document.getElementById('chatSupport').innerText =
           '💬 الدردشة المباشرة';
@@ -1176,7 +1155,7 @@ Address: ${address}`;
           '📞 Phone Support';
 
         document.getElementById('emailSupport').innerText =
-          '✉️ WhatsApp Support';
+          '✉️ Mail Support';
 
         document.getElementById('chatSupport').innerText =
           '💬 Live Chat';
@@ -1200,8 +1179,6 @@ Address: ${address}`;
 
     }
 
-    // LANGUAGE BUTTONS
-
     enBtn.addEventListener('click', () => {
 
       setLanguage('en');
@@ -1213,8 +1190,6 @@ Address: ${address}`;
       setLanguage('ar');
 
     });
-
-    // DEFAULT LANGUAGE
 
     setLanguage('en');
 
