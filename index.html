@@ -21,9 +21,19 @@
       font-family:'Poppins', sans-serif;
     }
 
+    :root{
+      --primary:#071739;
+      --secondary:#0b1f4d;
+      --gold:#d4a25a;
+      --gold-light:#e6be7a;
+      --white:#ffffff;
+      --bg:#f5f7fb;
+      --text:#1f2937;
+    }
+
     body{
-      background:#eef3f8;
-      color:#222;
+      background:var(--bg);
+      color:var(--text);
       overflow-x:hidden;
       transition:0.3s;
     }
@@ -49,17 +59,18 @@
       max-width:430px;
       margin:auto;
       min-height:100vh;
-      background:#f8fbff;
+      background:#ffffff;
       position:relative;
       padding-bottom:100px;
     }
 
     .header{
-      background:linear-gradient(135deg,#1e88e5,#43a047);
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
       padding:30px 20px;
       color:white;
       border-bottom-left-radius:30px;
       border-bottom-right-radius:30px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.2);
     }
 
     .top-row{
@@ -69,8 +80,14 @@
     }
 
     .logo{
-      font-size:28px;
-      font-weight:700;
+      display:flex;
+      align-items:center;
+    }
+
+    .logo img{
+      width:150px;
+      max-width:100%;
+      object-fit:contain;
     }
 
     .header-right{
@@ -83,12 +100,14 @@
       width:50px;
       height:50px;
       border-radius:50%;
-      background:rgba(255,255,255,0.2);
+      background:rgba(255,255,255,0.15);
+      border:1px solid rgba(255,255,255,0.2);
       display:flex;
       align-items:center;
       justify-content:center;
       font-size:24px;
       cursor:pointer;
+      color:white;
     }
 
     .lang-switch{
@@ -100,19 +119,29 @@
       border:none;
       padding:8px 12px;
       border-radius:10px;
-      background:white;
-      color:#1e88e5;
-      font-weight:600;
+      background:var(--gold);
+      color:var(--primary);
+      font-weight:700;
       cursor:pointer;
+      transition:0.3s;
+    }
+
+    .lang-btn:hover{
+      background:var(--gold-light);
     }
 
     .welcome{
-      margin-top:25px;
+      margin-top:2px;
     }
 
     .welcome h2{
       font-size:26px;
       margin-bottom:10px;
+      color:var(--gold-light);
+    }
+
+    .welcome p{
+      color:#e5e7eb;
     }
 
     .search-box{
@@ -120,6 +149,7 @@
       background:white;
       padding:12px 15px;
       border-radius:16px;
+      border:2px solid rgba(212,162,90,0.2);
     }
 
     .search-box input{
@@ -143,11 +173,12 @@
 
     .section-title h3{
       font-size:22px;
+      color:var(--primary);
     }
 
     .section-title span{
-      color:#1e88e5;
-      font-weight:600;
+      color:var(--gold);
+      font-weight:700;
       cursor:pointer;
     }
 
@@ -161,8 +192,9 @@
       background:white;
       border-radius:22px;
       padding:18px;
-      box-shadow:0 4px 15px rgba(0,0,0,0.06);
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
       transition:0.3s;
+      border:1px solid rgba(212,162,90,0.15);
     }
 
     .hidden-service{
@@ -171,6 +203,7 @@
 
     .service-card:hover{
       transform:translateY(-5px);
+      border-color:var(--gold);
     }
 
     .service-icon{
@@ -181,6 +214,7 @@
     .service-card h4{
       font-size:17px;
       margin-bottom:10px;
+      color:var(--primary);
     }
 
     .service-card p{
@@ -197,21 +231,27 @@
     }
 
     .book-btn{
-      background:linear-gradient(135deg,#1e88e5,#43a047);
-      color:white;
+      background:linear-gradient(135deg,var(--gold),var(--gold-light));
+      color:var(--primary);
       border:none;
-      padding:8px 15px;
+      padding:10px 18px;
       border-radius:12px;
       cursor:pointer;
       font-size:13px;
-      font-weight:600;
+      font-weight:700;
+      transition:0.3s;
+    }
+
+    .book-btn:hover{
+      transform:scale(1.03);
     }
 
     .booking-box{
       background:white;
       padding:20px;
       border-radius:25px;
-      box-shadow:0 4px 15px rgba(0,0,0,0.06);
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+      border:1px solid rgba(212,162,90,0.15);
     }
 
     .form-group{
@@ -222,7 +262,8 @@
       display:block;
       margin-bottom:7px;
       font-size:14px;
-      font-weight:500;
+      font-weight:600;
+      color:var(--primary);
     }
 
     .form-group input,
@@ -231,10 +272,18 @@
       width:100%;
       padding:14px;
       border:none;
-      background:#eef3f8;
+      background:#f4f6fa;
       border-radius:14px;
       outline:none;
       font-size:14px;
+      border:1px solid transparent;
+      transition:0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus{
+      border-color:var(--gold);
     }
 
     textarea{
@@ -245,14 +294,19 @@
     .submit-btn{
       width:100%;
       border:none;
-      background:linear-gradient(135deg,#1e88e5,#43a047);
-      color:white;
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      color:var(--gold-light);
       padding:16px;
       border-radius:16px;
       font-size:16px;
       font-weight:700;
       cursor:pointer;
       margin-top:10px;
+      transition:0.3s;
+    }
+
+    .submit-btn:hover{
+      opacity:0.95;
     }
 
     .bottom-nav{
@@ -262,24 +316,25 @@
       transform:translateX(-50%);
       width:100%;
       max-width:430px;
-      background:white;
+      background:var(--primary);
       padding:14px 0;
       display:flex;
       justify-content:space-around;
       border-top-left-radius:25px;
       border-top-right-radius:25px;
-      box-shadow:0 -5px 20px rgba(0,0,0,0.08);
+      box-shadow:0 -5px 20px rgba(0,0,0,0.15);
     }
 
     .nav-item{
       text-align:center;
-      color:#777;
+      color:#cbd5e1;
       cursor:pointer;
+      transition:0.3s;
     }
 
     .nav-item.active-nav{
-      color:#1e88e5;
-      font-weight:600;
+      color:var(--gold-light);
+      font-weight:700;
     }
 
     .nav-item div{
@@ -295,6 +350,10 @@
 
       .services{
         grid-template-columns:1fr;
+      }
+
+      .logo img{
+        width:120px;
       }
 
     }
@@ -313,7 +372,7 @@
       <div class="top-row">
 
         <div class="logo">
-          Cleanline
+          <img src="logo.png" alt="Cleanline Logo">
         </div>
 
         <div class="header-right">
@@ -379,6 +438,7 @@
 
       <div class="services">
 
+        <!-- Home Cleaning -->
         <div class="service-card">
 
           <div class="service-icon">🏠</div>
@@ -392,15 +452,12 @@
           </p>
 
           <div class="service-bottom">
-
-            <button class="book-btn">
-              Book
-            </button>
-
+            <button class="book-btn">Book</button>
           </div>
 
         </div>
 
+        <!-- Deep Cleaning -->
         <div class="service-card">
 
           <div class="service-icon">✨</div>
@@ -414,15 +471,12 @@
           </p>
 
           <div class="service-bottom">
-
-            <button class="book-btn">
-              Book
-            </button>
-
+            <button class="book-btn">Book</button>
           </div>
 
         </div>
 
+        <!-- Office Cleaning -->
         <div class="service-card hidden-service">
 
           <div class="service-icon">🏢</div>
@@ -436,15 +490,12 @@
           </p>
 
           <div class="service-bottom">
-
-            <button class="book-btn">
-              Book
-            </button>
-
+            <button class="book-btn">Book</button>
           </div>
 
         </div>
 
+        <!-- Sofa Cleaning -->
         <div class="service-card hidden-service">
 
           <div class="service-icon">🛋️</div>
@@ -458,11 +509,83 @@
           </p>
 
           <div class="service-bottom">
+            <button class="book-btn">Book</button>
+          </div>
 
-            <button class="book-btn">
-              Book
-            </button>
+        </div>
 
+        <!-- AC Cleaning -->
+        <div class="service-card hidden-service">
+
+          <div class="service-icon">❄️</div>
+
+          <h4 class="service-title">
+            AC Cleaning
+          </h4>
+
+          <p class="service-desc">
+            Professional AC cleaning and maintenance services.
+          </p>
+
+          <div class="service-bottom">
+            <button class="book-btn">Book</button>
+          </div>
+
+        </div>
+
+        <!-- Garden Maintenance -->
+        <div class="service-card hidden-service">
+
+          <div class="service-icon">🌿</div>
+
+          <h4 class="service-title">
+            Garden Maintenance
+          </h4>
+
+          <p class="service-desc">
+            Complete garden care, trimming and outdoor cleaning.
+          </p>
+
+          <div class="service-bottom">
+            <button class="book-btn">Book</button>
+          </div>
+
+        </div>
+
+        <!-- Curtain Cleaning -->
+        <div class="service-card hidden-service">
+
+          <div class="service-icon">🪟</div>
+
+          <h4 class="service-title">
+            Curtain Cleaning
+          </h4>
+
+          <p class="service-desc">
+            Gentle curtain washing and stain removal service.
+          </p>
+
+          <div class="service-bottom">
+            <button class="book-btn">Book</button>
+          </div>
+
+        </div>
+
+        <!-- Furniture Cleaning -->
+        <div class="service-card hidden-service">
+
+          <div class="service-icon">🪑</div>
+
+          <h4 class="service-title">
+            Furniture Cleaning
+          </h4>
+
+          <p class="service-desc">
+            Professional furniture polishing and deep cleaning.
+          </p>
+
+          <div class="service-bottom">
+            <button class="book-btn">Book</button>
           </div>
 
         </div>
@@ -524,25 +647,16 @@
 
             <select id="service" required>
 
-              <option value="">
-                Choose Service
-              </option>
+              <option value="">Choose Service</option>
 
-              <option>
-                Home Cleaning
-              </option>
-
-              <option>
-                Deep Cleaning
-              </option>
-
-              <option>
-                Office Cleaning
-              </option>
-
-              <option>
-                Sofa Cleaning
-              </option>
+              <option>Home Cleaning</option>
+              <option>Deep Cleaning</option>
+              <option>Office Cleaning</option>
+              <option>Sofa Cleaning</option>
+              <option>AC Cleaning</option>
+              <option>Garden Maintenance</option>
+              <option>Curtain Cleaning</option>
+              <option>Furniture Cleaning</option>
 
             </select>
 
@@ -865,64 +979,6 @@ Address: ${address}`;
 
     });
 
-    const homeBtn =
-      document.getElementById('homeBtn');
-
-    const bookingBtn =
-      document.getElementById('bookingBtn');
-
-    const supportBtn =
-      document.getElementById('supportBtn');
-
-    const homeSection =
-      document.getElementById('homeSection');
-
-    const supportSection =
-      document.getElementById('supportSection');
-
-    homeBtn.addEventListener('click', () => {
-
-      homeSection.scrollIntoView({
-        behavior:'smooth'
-      });
-
-    });
-
-    bookingBtn.addEventListener('click', () => {
-
-      bookingSection.scrollIntoView({
-        behavior:'smooth'
-      });
-
-    });
-
-    supportBtn.addEventListener('click', () => {
-
-      supportSection.scrollIntoView({
-        behavior:'smooth'
-      });
-
-    });
-
-    const navItems =
-      document.querySelectorAll('.nav-item');
-
-    navItems.forEach(item => {
-
-      item.addEventListener('click', () => {
-
-        navItems.forEach(nav => {
-
-          nav.classList.remove('active-nav');
-
-        });
-
-        item.classList.add('active-nav');
-
-      });
-
-    });
-
     const enBtn =
       document.getElementById('enBtn');
 
@@ -960,14 +1016,14 @@ Address: ${address}`;
         document.getElementById('servicesHeading').innerText =
           'الخدمات';
 
+        viewAllBtn.innerText =
+          expanded ? 'عرض أقل' : 'عرض الكل';
+
         document.getElementById('bookingHeading').innerText =
           'حجز الخدمة';
 
         document.getElementById('supportHeading').innerText =
           'الدعم';
-
-        viewAllBtn.innerText =
-          expanded ? 'عرض أقل' : 'عرض الكل';
 
         document.getElementById('labelName').innerText =
           'الاسم الكامل';
@@ -989,51 +1045,6 @@ Address: ${address}`;
 
         document.getElementById('submitBtn').innerText =
           'تأكيد الحجز';
-
-        serviceTitles[0].innerText =
-          'تنظيف المنازل';
-
-        serviceTitles[1].innerText =
-          'تنظيف عميق';
-
-        serviceTitles[2].innerText =
-          'تنظيف المكاتب';
-
-        serviceTitles[3].innerText =
-          'تنظيف الأرائك';
-
-        serviceDescs[0].innerText =
-          'تنظيف كامل للمنزل مع تعقيم المطبخ والحمامات';
-
-        serviceDescs[1].innerText =
-          'تنظيف عميق للشقق والفلل';
-
-        serviceDescs[2].innerText =
-          'حلول تنظيف احترافية للمكاتب ومساحات العمل';
-
-        serviceDescs[3].innerText =
-          'تنظيف بالبخار وإزالة البقع للأرائك والسجاد';
-
-        bookBtns.forEach(btn => {
-
-          btn.innerText = 'احجز';
-
-        });
-
-        serviceOptions[0].innerText =
-          'اختر الخدمة';
-
-        serviceOptions[1].innerText =
-          'تنظيف المنازل';
-
-        serviceOptions[2].innerText =
-          'تنظيف عميق';
-
-        serviceOptions[3].innerText =
-          'تنظيف المكاتب';
-
-        serviceOptions[4].innerText =
-          'تنظيف الأرائك';
 
         document.getElementById('phoneSupport').innerText =
           '📞 الدعم الهاتفي';
@@ -1059,6 +1070,56 @@ Address: ${address}`;
         document.getElementById('navProfile').innerText =
           'الملف الشخصي';
 
+        const arTitles = [
+          'تنظيف المنازل',
+          'تنظيف عميق',
+          'تنظيف المكاتب',
+          'تنظيف الأرائك',
+          'تنظيف المكيفات',
+          'صيانة الحدائق',
+          'تنظيف الستائر',
+          'تنظيف الأثاث'
+        ];
+
+        const arDescs = [
+          'تنظيف كامل للمنزل مع تعقيم المطبخ والحمامات',
+          'تنظيف عميق للشقق والفلل',
+          'حلول تنظيف احترافية للمكاتب ومساحات العمل',
+          'تنظيف بالبخار وإزالة البقع للأرائك والسجاد',
+          'تنظيف وصيانة احترافية للمكيفات',
+          'العناية الكاملة بالحدائق والتنظيف الخارجي',
+          'غسيل وتنظيف الستائر وإزالة البقع',
+          'تنظيف وتلميع الأثاث باحترافية'
+        ];
+
+        serviceTitles.forEach((title,index)=>{
+          title.innerText = arTitles[index];
+        });
+
+        serviceDescs.forEach((desc,index)=>{
+          desc.innerText = arDescs[index];
+        });
+
+        bookBtns.forEach(btn => {
+          btn.innerText = 'احجز';
+        });
+
+        const arOptions = [
+          'اختر الخدمة',
+          'تنظيف المنازل',
+          'تنظيف عميق',
+          'تنظيف المكاتب',
+          'تنظيف الأرائك',
+          'تنظيف المكيفات',
+          'صيانة الحدائق',
+          'تنظيف الستائر',
+          'تنظيف الأثاث'
+        ];
+
+        serviceOptions.forEach((option,index)=>{
+          option.innerText = arOptions[index];
+        });
+
       }else{
 
         document.body.classList.remove('arabic');
@@ -1076,14 +1137,14 @@ Address: ${address}`;
         document.getElementById('servicesHeading').innerText =
           'Services';
 
+        viewAllBtn.innerText =
+          expanded ? 'Show Less' : 'View All';
+
         document.getElementById('bookingHeading').innerText =
           'Book Service';
 
         document.getElementById('supportHeading').innerText =
           'Support';
-
-        viewAllBtn.innerText =
-          expanded ? 'Show Less' : 'View All';
 
         document.getElementById('labelName').innerText =
           'Full Name';
@@ -1106,89 +1167,16 @@ Address: ${address}`;
         document.getElementById('submitBtn').innerText =
           'Confirm Booking';
 
-        serviceTitles[0].innerText =
-          'Home Cleaning';
-
-        serviceTitles[1].innerText =
-          'Deep Cleaning';
-
-        serviceTitles[2].innerText =
-          'Office Cleaning';
-
-        serviceTitles[3].innerText =
-          'Sofa Cleaning';
-
-        serviceDescs[0].innerText =
-          'Complete house cleaning with kitchen and bathroom sanitization.';
-
-        serviceDescs[1].innerText =
-          'Detailed deep cleaning for apartments and villas.';
-
-        serviceDescs[2].innerText =
-          'Professional office and workspace cleaning solutions.';
-
-        serviceDescs[3].innerText =
-          'Steam cleaning and stain removal for sofas and carpets.';
-
-        bookBtns.forEach(btn => {
-
-          btn.innerText = 'Book';
-
-        });
-
-        serviceOptions[0].innerText =
-          'Choose Service';
-
-        serviceOptions[1].innerText =
-          'Home Cleaning';
-
-        serviceOptions[2].innerText =
-          'Deep Cleaning';
-
-        serviceOptions[3].innerText =
-          'Office Cleaning';
-
-        serviceOptions[4].innerText =
-          'Sofa Cleaning';
-
-        document.getElementById('phoneSupport').innerText =
-          '📞 Phone Support';
-
-        document.getElementById('emailSupport').innerText =
-          '✉️ Mail Support';
-
-        document.getElementById('chatSupport').innerText =
-          '💬 Live Chat';
-
-        document.getElementById('chatDescription').innerText =
-          'Available 24/7 for customer assistance.';
-
-        document.getElementById('navHome').innerText =
-          'Home';
-
-        document.getElementById('navBookings').innerText =
-          'Bookings';
-
-        document.getElementById('navSupport').innerText =
-          'Support';
-
-        document.getElementById('navProfile').innerText =
-          'Profile';
-
       }
 
     }
 
     enBtn.addEventListener('click', () => {
-
       setLanguage('en');
-
     });
 
     arBtn.addEventListener('click', () => {
-
       setLanguage('ar');
-
     });
 
     setLanguage('en');
