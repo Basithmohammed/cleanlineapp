@@ -324,6 +324,7 @@
       border-top-left-radius:25px;
       border-top-right-radius:25px;
       box-shadow:0 -5px 20px rgba(0,0,0,0.15);
+      z-index: 1000;
     }
 
     .nav-item{
@@ -348,15 +349,12 @@
     }
 
     @media(max-width:480px){
-
       .services{
         grid-template-columns:1fr;
       }
-
       .logo img{
         width:120px;
       }
-
     }
 
   </style>
@@ -367,7 +365,7 @@
 
   <div class="app">
 
-    <!-- HEADER -->
+    <!-- HEADER (HOME) -->
     <div class="header" id="homeSection">
 
       <div class="top-row">
@@ -379,18 +377,11 @@
         <div class="header-right">
 
           <div class="lang-switch">
-
-            <button id="enBtn" class="lang-btn">
-              EN
-            </button>
-
-            <button id="arBtn" class="lang-btn">
-              AR
-            </button>
-
+            <button id="enBtn" class="lang-btn">EN</button>
+            <button id="arBtn" class="lang-btn">AR</button>
           </div>
 
-          <div class="profile">
+          <div class="profile" id="profileIcon">
             👤
           </div>
 
@@ -399,198 +390,104 @@
       </div>
 
       <div class="welcome">
-
-        <h2 id="welcomeTitle">
-          Book Professional Cleaning
-        </h2>
-
-        <p id="welcomeSubtitle">
-          Fast, trusted and affordable cleaning services.
-        </p>
-
+        <h2 id="welcomeTitle">Book Professional Cleaning</h2>
+        <p id="welcomeSubtitle">Fast, trusted and affordable cleaning services.</p>
       </div>
 
       <div class="search-box">
-
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search services..."
-        >
-
+        <input type="text" id="searchInput" placeholder="Search services...">
       </div>
 
     </div>
 
     <!-- SERVICES -->
-    <div class="section">
+    <div class="section" id="servicesSection">
 
       <div class="section-title">
-
-        <h3 id="servicesHeading">
-          Services
-        </h3>
-
-        <span id="viewAllBtn">
-          View All
-        </span>
-
+        <h3 id="servicesHeading">Services</h3>
+        <span id="viewAllBtn">View All</span>
       </div>
 
       <div class="services">
-
         <!-- Home Cleaning -->
         <div class="service-card">
-
           <div class="service-icon">🏠</div>
-
-          <h4 class="service-title">
-            Home Cleaning
-          </h4>
-
-          <p class="service-desc">
-            Complete house cleaning with kitchen and bathroom sanitization.
-          </p>
-
+          <h4 class="service-title">Home Cleaning</h4>
+          <p class="service-desc">Complete house cleaning with kitchen and bathroom sanitization.</p>
           <div class="service-bottom">
             <button class="book-btn">Book</button>
           </div>
-
         </div>
 
         <!-- Deep Cleaning -->
         <div class="service-card">
-
           <div class="service-icon">✨</div>
-
-          <h4 class="service-title">
-            Deep Cleaning
-          </h4>
-
-          <p class="service-desc">
-            Detailed deep cleaning for apartments and villas.
-          </p>
-
+          <h4 class="service-title">Deep Cleaning</h4>
+          <p class="service-desc">Detailed deep cleaning for apartments and villas.</p>
           <div class="service-bottom">
             <button class="book-btn">Book</button>
           </div>
-
         </div>
 
         <!-- Office Cleaning -->
         <div class="service-card hidden-service">
-
           <div class="service-icon">🏢</div>
-
-          <h4 class="service-title">
-            Office Cleaning
-          </h4>
-
-          <p class="service-desc">
-            Professional office and workspace cleaning solutions.
-          </p>
-
+          <h4 class="service-title">Office Cleaning</h4>
+          <p class="service-desc">Professional office and workspace cleaning solutions.</p>
           <div class="service-bottom">
             <button class="book-btn">Book</button>
           </div>
-
         </div>
 
         <!-- Sofa Cleaning -->
         <div class="service-card hidden-service">
-
           <div class="service-icon">🛋️</div>
-
-          <h4 class="service-title">
-            Sofa Cleaning
-          </h4>
-
-          <p class="service-desc">
-            Steam cleaning and stain removal for sofas and carpets.
-          </p>
-
+          <h4 class="service-title">Sofa Cleaning</h4>
+          <p class="service-desc">Steam cleaning and stain removal for sofas and carpets.</p>
           <div class="service-bottom">
             <button class="book-btn">Book</button>
           </div>
-
         </div>
 
         <!-- AC Cleaning -->
         <div class="service-card hidden-service">
-
           <div class="service-icon">❄️</div>
-
-          <h4 class="service-title">
-            AC Cleaning
-          </h4>
-
-          <p class="service-desc">
-            Professional AC cleaning and maintenance services.
-          </p>
-
+          <h4 class="service-title">AC Cleaning</h4>
+          <p class="service-desc">Professional AC cleaning and maintenance services.</p>
           <div class="service-bottom">
             <button class="book-btn">Book</button>
           </div>
-
         </div>
 
         <!-- Garden Maintenance -->
         <div class="service-card hidden-service">
-
           <div class="service-icon">🌿</div>
-
-          <h4 class="service-title">
-            Garden Maintenance
-          </h4>
-
-          <p class="service-desc">
-            Complete garden care, trimming and outdoor cleaning.
-          </p>
-
+          <h4 class="service-title">Garden Maintenance</h4>
+          <p class="service-desc">Complete garden care, trimming and outdoor cleaning.</p>
           <div class="service-bottom">
             <button class="book-btn">Book</button>
           </div>
-
         </div>
 
         <!-- Curtain Cleaning -->
         <div class="service-card hidden-service">
-
           <div class="service-icon">🪟</div>
-
-          <h4 class="service-title">
-            Curtain Cleaning
-          </h4>
-
-          <p class="service-desc">
-            Gentle curtain washing and stain removal service.
-          </p>
-
+          <h4 class="service-title">Curtain Cleaning</h4>
+          <p class="service-desc">Gentle curtain washing and stain removal service.</p>
           <div class="service-bottom">
             <button class="book-btn">Book</button>
           </div>
-
         </div>
 
         <!-- Furniture Cleaning -->
         <div class="service-card hidden-service">
-
           <div class="service-icon">🪑</div>
-
-          <h4 class="service-title">
-            Furniture Cleaning
-          </h4>
-
-          <p class="service-desc">
-            Professional furniture polishing and deep cleaning.
-          </p>
-
+          <h4 class="service-title">Furniture Cleaning</h4>
+          <p class="service-desc">Professional furniture polishing and deep cleaning.</p>
           <div class="service-bottom">
             <button class="book-btn">Book</button>
           </div>
-
         </div>
-
       </div>
 
     </div>
@@ -599,57 +496,27 @@
     <div class="section" id="bookingSection">
 
       <div class="section-title">
-
-        <h3 id="bookingHeading">
-          Book Service
-        </h3>
-
+        <h3 id="bookingHeading">Book Service</h3>
       </div>
 
       <div class="booking-box">
-
         <form id="bookingForm">
-
           <div class="form-group">
-
-            <label id="labelName">
-              Full Name
-            </label>
-
+            <label id="labelName">Full Name</label>
             <input type="text" id="name" required>
-
           </div>
-
           <div class="form-group">
-
-            <label id="labelEmail">
-              Email Address
-            </label>
-
+            <label id="labelEmail">Email Address</label>
             <input type="email" id="email" required>
-
           </div>
-
           <div class="form-group">
-
-            <label id="labelPhone">
-              Phone Number
-            </label>
-
+            <label id="labelPhone">Phone Number</label>
             <input type="tel" id="phone" required>
-
           </div>
-
           <div class="form-group">
-
-            <label id="labelService">
-              Select Service
-            </label>
-
+            <label id="labelService">Select Service</label>
             <select id="service" required>
-
               <option value="">Choose Service</option>
-
               <option>Home Cleaning</option>
               <option>Deep Cleaning</option>
               <option>Office Cleaning</option>
@@ -658,41 +525,18 @@
               <option>Garden Maintenance</option>
               <option>Curtain Cleaning</option>
               <option>Furniture Cleaning</option>
-
             </select>
-
           </div>
-
           <div class="form-group">
-
-            <label id="labelDate">
-              Booking Date
-            </label>
-
+            <label id="labelDate">Booking Date</label>
             <input type="date" id="date" required>
-
           </div>
-
           <div class="form-group">
-
-            <label id="labelAddress">
-              Address
-            </label>
-
+            <label id="labelAddress">Address</label>
             <textarea id="address" required></textarea>
-
           </div>
-
-          <button
-            type="submit"
-            class="submit-btn"
-            id="submitBtn"
-          >
-            Confirm Booking
-          </button>
-
+          <button type="submit" class="submit-btn" id="submitBtn">Confirm Booking</button>
         </form>
-
       </div>
 
     </div>
@@ -701,55 +545,24 @@
     <div class="section" id="supportSection">
 
       <div class="section-title">
-
-        <h3 id="supportHeading">
-          Support
-        </h3>
-
+        <h3 id="supportHeading">Support</h3>
       </div>
 
       <div class="booking-box">
-
         <div style="display:flex; flex-direction:column; gap:15px;">
-
           <div style="background:#eef3f8; padding:15px; border-radius:15px;">
-
-            <h4 id="phoneSupport">
-              📞 Phone Support
-            </h4>
-
-            <p>
-              0575852413
-            </p>
-
+            <h4 id="phoneSupport">📞 Phone Support</h4>
+            <p>0575852413</p>
           </div>
-
           <div style="background:#eef3f8; padding:15px; border-radius:15px;">
-
-            <h4 id="emailSupport">
-              ✉️ Mail Support
-            </h4>
-
-            <p>
-              support@cleanline.sa
-            </p>
-
+            <h4 id="emailSupport">✉️ Mail Support</h4>
+            <p>support@cleanline.sa</p>
           </div>
-
           <div style="background:#eef3f8; padding:15px; border-radius:15px;">
-
-            <h4 id="chatSupport">
-              💬 Live Chat
-            </h4>
-
-            <p id="chatDescription">
-              Available 24/7 for customer assistance.
-            </p>
-
+            <h4 id="chatSupport">💬 Live Chat</h4>
+            <p id="chatDescription">Available 24/7 for customer assistance.</p>
           </div>
-
         </div>
-
       </div>
 
     </div>
@@ -757,44 +570,24 @@
     <!-- BOTTOM NAVIGATION -->
     <div class="bottom-nav">
 
-      <div class="nav-item active-nav" id="homeBtn">
-
+      <div class="nav-item active-nav" id="navHomeBtn">
         <div>🏠</div>
-
-        <p id="navHome">
-          Home
-        </p>
-
+        <p id="navHome">Home</p>
       </div>
 
-      <div class="nav-item" id="bookingBtn">
-
+      <div class="nav-item" id="navBookingBtn">
         <div>📅</div>
-
-        <p id="navBookings">
-          Bookings
-        </p>
-
+        <p id="navBookings">Bookings</p>
       </div>
 
-      <div class="nav-item" id="supportBtn">
-
+      <div class="nav-item" id="navSupportBtn">
         <div>💬</div>
-
-        <p id="navSupport">
-          Support
-        </p>
-
+        <p id="navSupport">Support</p>
       </div>
 
-      <div class="nav-item">
-
+      <div class="nav-item" id="navProfileBtn">
         <div>👤</div>
-
-        <p id="navProfile">
-          Profile
-        </p>
-
+        <p id="navProfile">Profile</p>
       </div>
 
     </div>
@@ -803,6 +596,50 @@
 
   <script>
 
+    // --- NAVIGATION LOGIC ---
+    function scrollToSection(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Bottom Nav Click Events
+    document.getElementById('navHomeBtn').addEventListener('click', () => {
+      scrollToSection('homeSection');
+      updateActiveNav('navHomeBtn');
+    });
+
+    document.getElementById('navBookingBtn').addEventListener('click', () => {
+      scrollToSection('bookingSection');
+      updateActiveNav('navBookingBtn');
+    });
+
+    document.getElementById('navSupportBtn').addEventListener('click', () => {
+      scrollToSection('supportSection');
+      updateActiveNav('navSupportBtn');
+    });
+
+    document.getElementById('navProfileBtn').addEventListener('click', () => {
+      scrollToSection('homeSection'); // Navigate to top
+      updateActiveNav('navProfileBtn');
+    });
+
+    // Profile Icon (Header) Click Event
+    document.getElementById('profileIcon').addEventListener('click', () => {
+      scrollToSection('homeSection');
+    });
+
+    // Function to update visual active state of navigation
+    function updateActiveNav(activeId) {
+      document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active-nav');
+      });
+      document.getElementById(activeId).classList.add('active-nav');
+    }
+
+    // --- ORIGINAL APP LOGIC ---
+
     const whatsappNumber = "966575852413";
 
     const bookButtons = document.querySelectorAll('.book-btn');
@@ -810,323 +647,126 @@
     const bookingSection = document.getElementById('bookingSection');
 
     bookButtons.forEach(button => {
-
       button.addEventListener('click', () => {
-
         const serviceName = button
           .closest('.service-card')
           .querySelector('h4')
           .innerText;
 
         serviceSelect.value = serviceName;
-
-        bookingSection.scrollIntoView({
-          behavior:'smooth',
-          block:'start'
-        });
-
+        scrollToSection('bookingSection');
+        updateActiveNav('navBookingBtn');
       });
-
     });
 
-    const bookingForm =
-      document.getElementById('bookingForm');
-
+    const bookingForm = document.getElementById('bookingForm');
     bookingForm.addEventListener('submit', function(e){
-
       e.preventDefault();
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const service = document.getElementById('service').value;
+      const date = document.getElementById('date').value;
+      const address = document.getElementById('address').value;
 
-      const name =
-        document.getElementById('name').value;
-
-      const email =
-        document.getElementById('email').value;
-
-      const phone =
-        document.getElementById('phone').value;
-
-      const service =
-        document.getElementById('service').value;
-
-      const date =
-        document.getElementById('date').value;
-
-      const address =
-        document.getElementById('address').value;
-
-      const isArabic =
-        document.body.classList.contains('arabic');
-
+      const isArabic = document.body.classList.contains('arabic');
       let message = '';
 
       if(isArabic){
-
-        message =
-`طلب حجز جديد
-
-الاسم: ${name}
-
-البريد الإلكتروني: ${email}
-
-رقم الهاتف: ${phone}
-
-الخدمة: ${service}
-
-تاريخ الحجز: ${date}
-
-العنوان: ${address}`;
-
+        message = `طلب حجز جديد\nالاسم: ${name}\nالبريد الإلكتروني: ${email}\nرقم الهاتف: ${phone}\nالخدمة: ${service}\nتاريخ الحجز: ${date}\nالعنوان: ${address}`;
       }else{
-
-        message =
-`New Booking Request
-
-Full Name: ${name}
-
-Email: ${email}
-
-Phone: ${phone}
-
-Service: ${service}
-
-Booking Date: ${date}
-
-Address: ${address}`;
-
+        message = `New Booking Request\nFull Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nBooking Date: ${date}\nAddress: ${address}`;
       }
 
-      const whatsappURL =
-        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
       window.location.href = whatsappURL;
-
       bookingForm.reset();
-
     });
 
-    const viewAllBtn =
-      document.getElementById('viewAllBtn');
-
-    const hiddenServices =
-      document.querySelectorAll('.hidden-service');
-
+    const viewAllBtn = document.getElementById('viewAllBtn');
+    const hiddenServices = document.querySelectorAll('.hidden-service');
     let expanded = false;
 
     viewAllBtn.addEventListener('click', () => {
-
       expanded = !expanded;
-
       hiddenServices.forEach(service => {
-
-        service.style.display =
-          expanded ? 'block' : 'none';
-
+        service.style.display = expanded ? 'block' : 'none';
       });
-
       if(document.body.classList.contains('arabic')){
-
-        viewAllBtn.innerText =
-          expanded ? 'عرض أقل' : 'عرض الكل';
-
+        viewAllBtn.innerText = expanded ? 'عرض أقل' : 'عرض الكل';
       }else{
-
-        viewAllBtn.innerText =
-          expanded ? 'Show Less' : 'View All';
-
+        viewAllBtn.innerText = expanded ? 'Show Less' : 'View All';
       }
-
     });
 
-    const searchInput =
-      document.getElementById('searchInput');
-
-    const allServiceCards =
-      document.querySelectorAll('.service-card');
+    const searchInput = document.getElementById('searchInput');
+    const allServiceCards = document.querySelectorAll('.service-card');
 
     searchInput.addEventListener('keyup', () => {
-
-      const value =
-        searchInput.value.toLowerCase();
-
+      const value = searchInput.value.toLowerCase();
       allServiceCards.forEach(card => {
-
-        const title =
-          card.querySelector('h4')
-          .innerText
-          .toLowerCase();
-
+        const title = card.querySelector('h4').innerText.toLowerCase();
         if(title.includes(value)){
-
           card.style.display = 'block';
-
         }else{
-
           card.style.display = 'none';
-
         }
-
       });
-
       if(value === ''){
-
         hiddenServices.forEach(service => {
-
-          service.style.display =
-            expanded ? 'block' : 'none';
-
+          service.style.display = expanded ? 'block' : 'none';
         });
-
       }
-
     });
 
-    const enBtn =
-      document.getElementById('enBtn');
-
-    const arBtn =
-      document.getElementById('arBtn');
+    const enBtn = document.getElementById('enBtn');
+    const arBtn = document.getElementById('arBtn');
 
     function setLanguage(lang){
-
-      const serviceTitles =
-        document.querySelectorAll('.service-title');
-
-      const serviceDescs =
-        document.querySelectorAll('.service-desc');
-
-      const serviceOptions =
-        document.querySelectorAll('#service option');
-
-      const bookBtns =
-        document.querySelectorAll('.book-btn');
+      const serviceTitles = document.querySelectorAll('.service-title');
+      const serviceDescs = document.querySelectorAll('.service-desc');
+      const serviceOptions = document.querySelectorAll('#service option');
+      const bookBtns = document.querySelectorAll('.book-btn');
 
       if(lang === 'ar'){
-
         document.body.classList.add('arabic');
         document.documentElement.lang = 'ar';
+        document.getElementById('welcomeTitle').innerText = 'احجز خدمة تنظيف احترافية';
+        document.getElementById('welcomeSubtitle').innerText = 'خدمات تنظيف سريعة وموثوقة وبأسعار مناسبة';
+        document.getElementById('searchInput').placeholder = 'ابحث عن الخدمات...';
+        document.getElementById('servicesHeading').innerText = 'الخدمات';
+        viewAllBtn.innerText = expanded ? 'عرض أقل' : 'عرض الكل';
+        document.getElementById('bookingHeading').innerText = 'حجز الخدمة';
+        document.getElementById('supportHeading').innerText = 'الدعم';
+        document.getElementById('labelName').innerText = 'الاسم الكامل';
+        document.getElementById('labelEmail').innerText = 'البريد الإلكتروني';
+        document.getElementById('labelPhone').innerText = 'رقم الهاتف';
+        document.getElementById('labelService').innerText = 'اختر الخدمة';
+        document.getElementById('labelDate').innerText = 'تاريخ الحجز';
+        document.getElementById('labelAddress').innerText = 'العنوان';
+        document.getElementById('submitBtn').innerText = 'تأكيد الحجز';
+        document.getElementById('phoneSupport').innerText = '📞 الدعم الهاتفي';
+        document.getElementById('emailSupport').innerText = '✉️ دعم البريد الإلكتروني';
+        document.getElementById('chatSupport').innerText = '💬 الدردشة المباشرة';
+        document.getElementById('chatDescription').innerText = 'متاح 24/7 لخدمة العملاء';
+        document.getElementById('navHome').innerText = 'الرئيسية';
+        document.getElementById('navBookings').innerText = 'الحجوزات';
+        document.getElementById('navSupport').innerText = 'الدعم';
+        document.getElementById('navProfile').innerText = 'الملف الشخصي';
 
-        document.getElementById('welcomeTitle').innerText =
-          'احجز خدمة تنظيف احترافية';
+        const arTitles = ['تنظيف المنازل','تنظيف عميق','تنظيف المكاتب','تنظيف الأرائك','تنظيف المكيفات','صيانة الحدائق','تنظيف الستائر','تنظيف الأثاث'];
+        const arDescs = ['تنظيف كامل للمنزل مع تعقيم المطبخ والحمامات','تنظيف عميق للشقق والفلل','حلول تنظيف احترافية للمكاتب ومساحات العمل','تنظيف بالبخار وإزالة البقع للأرائك والسجاد','تنظيف وصيانة احترافية للمكيفات','العناية الكاملة بالحدائق والتنظيف الخارجي','غسيل وتنظيف الستائر وإزالة البقع','تنظيف وتلميع الأثاث باحترافية'];
 
-        document.getElementById('welcomeSubtitle').innerText =
-          'خدمات تنظيف سريعة وموثوقة وبأسعار مناسبة';
+        serviceTitles.forEach((title,index)=>{ title.innerText = arTitles[index]; });
+        serviceDescs.forEach((desc,index)=>{ desc.innerText = arDescs[index]; });
+        bookBtns.forEach(btn => { btn.innerText = 'احجز'; });
 
-        document.getElementById('searchInput').placeholder =
-          'ابحث عن الخدمات...';
+        const arOptions = ['اختر الخدمة','تنظيف المنازل','تنظيف عميق','تنظيف المكاتب','تنظيف الأرائك','تنظيف المكيفات','صيانة الحدائق','تنظيف الستائر','تنظيف الأثاث'];
+        serviceOptions.forEach((option,index)=>{ option.innerText = arOptions[index]; });
 
-        document.getElementById('servicesHeading').innerText =
-          'الخدمات';
-
-        viewAllBtn.innerText =
-          expanded ? 'عرض أقل' : 'عرض الكل';
-
-        document.getElementById('bookingHeading').innerText =
-          'حجز الخدمة';
-
-        document.getElementById('supportHeading').innerText =
-          'الدعم';
-
-        document.getElementById('labelName').innerText =
-          'الاسم الكامل';
-
-        document.getElementById('labelEmail').innerText =
-          'البريد الإلكتروني';
-
-        document.getElementById('labelPhone').innerText =
-          'رقم الهاتف';
-
-        document.getElementById('labelService').innerText =
-          'اختر الخدمة';
-
-        document.getElementById('labelDate').innerText =
-          'تاريخ الحجز';
-
-        document.getElementById('labelAddress').innerText =
-          'العنوان';
-
-        document.getElementById('submitBtn').innerText =
-          'تأكيد الحجز';
-
-        document.getElementById('phoneSupport').innerText =
-          '📞 الدعم الهاتفي';
-
-        document.getElementById('emailSupport').innerText =
-          '✉️ دعم البريد الإلكتروني';
-
-        document.getElementById('chatSupport').innerText =
-          '💬 الدردشة المباشرة';
-
-        document.getElementById('chatDescription').innerText =
-          'متاح 24/7 لخدمة العملاء';
-
-        document.getElementById('navHome').innerText =
-          'الرئيسية';
-
-        document.getElementById('navBookings').innerText =
-          'الحجوزات';
-
-        document.getElementById('navSupport').innerText =
-          'الدعم';
-
-        document.getElementById('navProfile').innerText =
-          'الملف الشخصي';
-
-        const arTitles = [
-          'تنظيف المنازل',
-          'تنظيف عميق',
-          'تنظيف المكاتب',
-          'تنظيف الأرائك',
-          'تنظيف المكيفات',
-          'صيانة الحدائق',
-          'تنظيف الستائر',
-          'تنظيف الأثاث'
-        ];
-
-        const arDescs = [
-          'تنظيف كامل للمنزل مع تعقيم المطبخ والحمامات',
-          'تنظيف عميق للشقق والفلل',
-          'حلول تنظيف احترافية للمكاتب ومساحات العمل',
-          'تنظيف بالبخار وإزالة البقع للأرائك والسجاد',
-          'تنظيف وصيانة احترافية للمكيفات',
-          'العناية الكاملة بالحدائق والتنظيف الخارجي',
-          'غسيل وتنظيف الستائر وإزالة البقع',
-          'تنظيف وتلميع الأثاث باحترافية'
-        ];
-
-        serviceTitles.forEach((title,index)=>{
-          title.innerText = arTitles[index];
-        });
-
-        serviceDescs.forEach((desc,index)=>{
-          desc.innerText = arDescs[index];
-        });
-
-        bookBtns.forEach(btn => {
-          btn.innerText = 'احجز';
-        });
-
-        const arOptions = [
-          'اختر الخدمة',
-          'تنظيف المنازل',
-          'تنظيف عميق',
-          'تنظيف المكاتب',
-          'تنظيف الأرائك',
-          'تنظيف المكيفات',
-          'صيانة الحدائق',
-          'تنظيف الستائر',
-          'تنظيف الأثاث'
-        ];
-
-        serviceOptions.forEach((option,index)=>{
-          option.innerText = arOptions[index];
-        });
-
-      } else {
-
+      }else{
         document.body.classList.remove('arabic');
         document.documentElement.lang = 'en';
-
-        // Update Text Elements
         document.getElementById('welcomeTitle').innerText = 'Book Professional Cleaning';
         document.getElementById('welcomeSubtitle').innerText = 'Fast, trusted and affordable cleaning services.';
         document.getElementById('searchInput').placeholder = 'Search services...';
@@ -1134,8 +774,6 @@ Address: ${address}`;
         viewAllBtn.innerText = expanded ? 'Show Less' : 'View All';
         document.getElementById('bookingHeading').innerText = 'Book Service';
         document.getElementById('supportHeading').innerText = 'Support';
-        
-        // Form Labels
         document.getElementById('labelName').innerText = 'Full Name';
         document.getElementById('labelEmail').innerText = 'Email Address';
         document.getElementById('labelPhone').innerText = 'Phone Number';
@@ -1143,80 +781,29 @@ Address: ${address}`;
         document.getElementById('labelDate').innerText = 'Booking Date';
         document.getElementById('labelAddress').innerText = 'Address';
         document.getElementById('submitBtn').innerText = 'Confirm Booking';
-
-        // Support Section
         document.getElementById('phoneSupport').innerText = '📞 Phone Support';
         document.getElementById('emailSupport').innerText = '✉️ Mail Support';
         document.getElementById('chatSupport').innerText = '💬 Live Chat';
         document.getElementById('chatDescription').innerText = 'Available 24/7 for customer assistance.';
-
-        // Nav Items
         document.getElementById('navHome').innerText = 'Home';
         document.getElementById('navBookings').innerText = 'Bookings';
         document.getElementById('navSupport').innerText = 'Support';
         document.getElementById('navProfile').innerText = 'Profile';
 
-        // Service Titles & Descriptions
-        const enTitles = [
-          'Home Cleaning',
-          'Deep Cleaning',
-          'Office Cleaning',
-          'Sofa Cleaning',
-          'AC Cleaning',
-          'Garden Maintenance',
-          'Curtain Cleaning',
-          'Furniture Cleaning'
-        ];
+        const enTitles = ['Home Cleaning','Deep Cleaning','Office Cleaning','Sofa Cleaning','AC Cleaning','Garden Maintenance','Curtain Cleaning','Furniture Cleaning'];
+        const enDescs = ['Complete house cleaning with kitchen and bathroom sanitization.','Detailed deep cleaning for apartments and villas.','Professional office and workspace cleaning solutions.','Steam cleaning and stain removal for sofas and carpets.','Professional AC cleaning and maintenance services.','Complete garden care, trimming and outdoor cleaning.','Gentle curtain washing and stain removal service.','Professional furniture polishing and deep cleaning.'];
 
-        const enDescs = [
-          'Complete house cleaning with kitchen and bathroom sanitization.',
-          'Detailed deep cleaning for apartments and villas.',
-          'Professional office and workspace cleaning solutions.',
-          'Steam cleaning and stain removal for sofas and carpets.',
-          'Professional AC cleaning and maintenance services.',
-          'Complete garden care, trimming and outdoor cleaning.',
-          'Gentle curtain washing and stain removal service.',
-          'Professional furniture polishing and deep cleaning.'
-        ];
+        serviceTitles.forEach((title,index)=>{ title.innerText = enTitles[index]; });
+        serviceDescs.forEach((desc,index)=>{ desc.innerText = enDescs[index]; });
+        bookBtns.forEach(btn => { btn.innerText = 'Book'; });
 
-        serviceTitles.forEach((title, index) => {
-          title.innerText = enTitles[index];
-        });
-
-        serviceDescs.forEach((desc, index) => {
-          desc.innerText = enDescs[index];
-        });
-
-        bookBtns.forEach(btn => {
-          btn.innerText = 'Book';
-        });
-
-        // Select Options
-        const enOptions = [
-          'Choose Service',
-          'Home Cleaning',
-          'Deep Cleaning',
-          'Office Cleaning',
-          'Sofa Cleaning',
-          'AC Cleaning',
-          'Garden Maintenance',
-          'Curtain Cleaning',
-          'Furniture Cleaning'
-        ];
-
-        serviceOptions.forEach((option, index) => {
-          option.innerText = enOptions[index];
-        });
+        const enOptions = ['Choose Service','Home Cleaning','Deep Cleaning','Office Cleaning','Sofa Cleaning','AC Cleaning','Garden Maintenance','Curtain Cleaning','Furniture Cleaning'];
+        serviceOptions.forEach((option,index)=>{ option.innerText = enOptions[index]; });
       }
     }
 
-    enBtn.addEventListener('click', () => {
-      setLanguage('en');
-    });
-
-    arBtn.addEventListener('click', () => {
-      setLanguage('ar');
-    });
+    enBtn.addEventListener('click', () => setLanguage('en'));
+    arBtn.addEventListener('click', () => setLanguage('ar'));
 
     setLanguage('en');
 
