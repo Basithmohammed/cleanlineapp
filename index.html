@@ -1121,55 +1121,93 @@ Address: ${address}`;
           option.innerText = arOptions[index];
         });
 
-      }else{
+      } else {
 
         document.body.classList.remove('arabic');
         document.documentElement.lang = 'en';
 
-        document.getElementById('welcomeTitle').innerText =
-          'Book Professional Cleaning';
+        // Update Text Elements
+        document.getElementById('welcomeTitle').innerText = 'Book Professional Cleaning';
+        document.getElementById('welcomeSubtitle').innerText = 'Fast, trusted and affordable cleaning services.';
+        document.getElementById('searchInput').placeholder = 'Search services...';
+        document.getElementById('servicesHeading').innerText = 'Services';
+        viewAllBtn.innerText = expanded ? 'Show Less' : 'View All';
+        document.getElementById('bookingHeading').innerText = 'Book Service';
+        document.getElementById('supportHeading').innerText = 'Support';
+        
+        // Form Labels
+        document.getElementById('labelName').innerText = 'Full Name';
+        document.getElementById('labelEmail').innerText = 'Email Address';
+        document.getElementById('labelPhone').innerText = 'Phone Number';
+        document.getElementById('labelService').innerText = 'Select Service';
+        document.getElementById('labelDate').innerText = 'Booking Date';
+        document.getElementById('labelAddress').innerText = 'Address';
+        document.getElementById('submitBtn').innerText = 'Confirm Booking';
 
-        document.getElementById('welcomeSubtitle').innerText =
-          'Fast, trusted and affordable cleaning services.';
+        // Support Section
+        document.getElementById('phoneSupport').innerText = '📞 Phone Support';
+        document.getElementById('emailSupport').innerText = '✉️ Mail Support';
+        document.getElementById('chatSupport').innerText = '💬 Live Chat';
+        document.getElementById('chatDescription').innerText = 'Available 24/7 for customer assistance.';
 
-        document.getElementById('searchInput').placeholder =
-          'Search services...';
+        // Nav Items
+        document.getElementById('navHome').innerText = 'Home';
+        document.getElementById('navBookings').innerText = 'Bookings';
+        document.getElementById('navSupport').innerText = 'Support';
+        document.getElementById('navProfile').innerText = 'Profile';
 
-        document.getElementById('servicesHeading').innerText =
-          'Services';
+        // Service Titles & Descriptions
+        const enTitles = [
+          'Home Cleaning',
+          'Deep Cleaning',
+          'Office Cleaning',
+          'Sofa Cleaning',
+          'AC Cleaning',
+          'Garden Maintenance',
+          'Curtain Cleaning',
+          'Furniture Cleaning'
+        ];
 
-        viewAllBtn.innerText =
-          expanded ? 'Show Less' : 'View All';
+        const enDescs = [
+          'Complete house cleaning with kitchen and bathroom sanitization.',
+          'Detailed deep cleaning for apartments and villas.',
+          'Professional office and workspace cleaning solutions.',
+          'Steam cleaning and stain removal for sofas and carpets.',
+          'Professional AC cleaning and maintenance services.',
+          'Complete garden care, trimming and outdoor cleaning.',
+          'Gentle curtain washing and stain removal service.',
+          'Professional furniture polishing and deep cleaning.'
+        ];
 
-        document.getElementById('bookingHeading').innerText =
-          'Book Service';
+        serviceTitles.forEach((title, index) => {
+          title.innerText = enTitles[index];
+        });
 
-        document.getElementById('supportHeading').innerText =
-          'Support';
+        serviceDescs.forEach((desc, index) => {
+          desc.innerText = enDescs[index];
+        });
 
-        document.getElementById('labelName').innerText =
-          'Full Name';
+        bookBtns.forEach(btn => {
+          btn.innerText = 'Book';
+        });
 
-        document.getElementById('labelEmail').innerText =
-          'Email Address';
+        // Select Options
+        const enOptions = [
+          'Choose Service',
+          'Home Cleaning',
+          'Deep Cleaning',
+          'Office Cleaning',
+          'Sofa Cleaning',
+          'AC Cleaning',
+          'Garden Maintenance',
+          'Curtain Cleaning',
+          'Furniture Cleaning'
+        ];
 
-        document.getElementById('labelPhone').innerText =
-          'Phone Number';
-
-        document.getElementById('labelService').innerText =
-          'Select Service';
-
-        document.getElementById('labelDate').innerText =
-          'Booking Date';
-
-        document.getElementById('labelAddress').innerText =
-          'Address';
-
-        document.getElementById('submitBtn').innerText =
-          'Confirm Booking';
-
+        serviceOptions.forEach((option, index) => {
+          option.innerText = enOptions[index];
+        });
       }
-
     }
 
     enBtn.addEventListener('click', () => {
