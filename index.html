@@ -13,6 +13,9 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- SheetJS library for Excel export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
   <style>
 
     *{
@@ -357,6 +360,248 @@
       }
     }
 
+    /* --- CONFIRMATION OVERLAY --- */
+    .confirm-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(7,23,57,0.55);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:3000;
+      padding:20px;
+    }
+
+    .confirm-overlay.show{
+      display:flex;
+    }
+
+    .confirm-card{
+      background:white;
+      border-radius:24px;
+      padding:35px 25px;
+      text-align:center;
+      max-width:340px;
+      width:100%;
+      box-shadow:0 20px 50px rgba(0,0,0,0.3);
+      animation:popIn 0.25s ease;
+    }
+
+    @keyframes popIn{
+      from{ transform:scale(0.85); opacity:0; }
+      to{ transform:scale(1); opacity:1; }
+    }
+
+    .confirm-icon{
+      width:70px;
+      height:70px;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--gold),var(--gold-light));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:34px;
+      margin:0 auto 18px;
+      color:var(--primary);
+    }
+
+    .confirm-card h3{
+      color:var(--primary);
+      font-size:20px;
+      margin-bottom:10px;
+    }
+
+    .confirm-card p{
+      color:#555;
+      font-size:14px;
+      line-height:1.6;
+      margin-bottom:22px;
+    }
+
+    .confirm-close-btn{
+      width:100%;
+      border:none;
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      color:var(--gold-light);
+      padding:14px;
+      border-radius:14px;
+      font-size:15px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    /* --- ADMIN PANEL --- */
+    .admin-link{
+      text-align:center;
+      margin-top:10px;
+      font-size:12px;
+      color:#aab3c5;
+      cursor:pointer;
+      text-decoration:underline;
+    }
+
+    .admin-overlay{
+      position:fixed;
+      inset:0;
+      background:#f5f7fb;
+      display:none;
+      z-index:4000;
+      overflow-y:auto;
+    }
+
+    .admin-overlay.show{
+      display:block;
+    }
+
+    .admin-header{
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      color:white;
+      padding:20px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+
+    .admin-header h2{
+      font-size:20px;
+      color:var(--gold-light);
+    }
+
+    .admin-close{
+      background:rgba(255,255,255,0.15);
+      border:none;
+      color:white;
+      width:36px;
+      height:36px;
+      border-radius:50%;
+      font-size:18px;
+      cursor:pointer;
+    }
+
+    .admin-body{
+      padding:20px;
+      max-width:900px;
+      margin:auto;
+    }
+
+    .admin-login-box{
+      background:white;
+      max-width:340px;
+      margin:60px auto;
+      padding:30px 25px;
+      border-radius:20px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+      text-align:center;
+    }
+
+    .admin-login-box h3{
+      color:var(--primary);
+      margin-bottom:15px;
+    }
+
+    .admin-login-box input{
+      width:100%;
+      padding:14px;
+      border-radius:12px;
+      border:1px solid #e2e6ee;
+      margin-bottom:15px;
+      outline:none;
+      font-size:14px;
+    }
+
+    .admin-login-box button{
+      width:100%;
+      border:none;
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      color:var(--gold-light);
+      padding:14px;
+      border-radius:12px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    .admin-login-error{
+      color:#dc2626;
+      font-size:13px;
+      margin-top:-8px;
+      margin-bottom:12px;
+      display:none;
+    }
+
+    .admin-toolbar{
+      display:flex;
+      gap:10px;
+      margin-bottom:18px;
+      flex-wrap:wrap;
+    }
+
+    .admin-btn{
+      border:none;
+      padding:12px 18px;
+      border-radius:12px;
+      font-weight:700;
+      font-size:13px;
+      cursor:pointer;
+    }
+
+    .admin-btn.export{
+      background:linear-gradient(135deg,var(--gold),var(--gold-light));
+      color:var(--primary);
+    }
+
+    .admin-btn.clear{
+      background:#fee2e2;
+      color:#b91c1c;
+    }
+
+    .admin-count{
+      align-self:center;
+      color:#666;
+      font-size:13px;
+      margin-left:auto;
+    }
+
+    .admin-table-wrap{
+      background:white;
+      border-radius:18px;
+      overflow-x:auto;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    table.admin-table{
+      width:100%;
+      border-collapse:collapse;
+      font-size:13px;
+      min-width:700px;
+    }
+
+    table.admin-table th{
+      background:var(--primary);
+      color:var(--gold-light);
+      text-align:left;
+      padding:12px;
+      white-space:nowrap;
+    }
+
+    table.admin-table td{
+      padding:12px;
+      border-bottom:1px solid #eef1f6;
+      color:#333;
+    }
+
+    table.admin-table tr:last-child td{
+      border-bottom:none;
+    }
+
+    .admin-empty{
+      text-align:center;
+      color:#888;
+      padding:40px 20px;
+    }
+
   </style>
 
 </head>
@@ -563,6 +808,9 @@
             <p id="chatDescription">Available 24/7 for customer assistance.</p>
           </div>
         </div>
+
+        <div class="admin-link" id="adminLinkBtn">Admin Panel</div>
+
       </div>
 
     </div>
@@ -590,6 +838,68 @@
         <p id="navProfile">Profile</p>
       </div>
 
+    </div>
+
+  </div>
+
+  <!-- CUSTOMER CONFIRMATION OVERLAY -->
+  <div class="confirm-overlay" id="confirmOverlay">
+    <div class="confirm-card">
+      <div class="confirm-icon">✔</div>
+      <h3 id="confirmTitle">Booking Confirmed!</h3>
+      <p id="confirmText">Thank you! Your booking request has been received. Our team will contact you shortly to confirm the details.</p>
+      <button class="confirm-close-btn" id="confirmCloseBtn">Done</button>
+    </div>
+  </div>
+
+  <!-- ADMIN PANEL OVERLAY -->
+  <div class="admin-overlay" id="adminOverlay">
+
+    <div class="admin-header">
+      <h2>Cleanline Admin</h2>
+      <button class="admin-close" id="adminCloseBtn">✕</button>
+    </div>
+
+    <!-- Login Screen -->
+    <div id="adminLoginScreen">
+      <div class="admin-login-box">
+        <h3>Admin Login</h3>
+        <input type="password" id="adminPasswordInput" placeholder="Enter admin password">
+        <p class="admin-login-error" id="adminLoginError">Incorrect password. Try again.</p>
+        <button id="adminLoginBtn">Login</button>
+      </div>
+    </div>
+
+    <!-- Dashboard Screen -->
+    <div id="adminDashboardScreen" style="display:none;">
+      <div class="admin-body">
+
+        <div class="admin-toolbar">
+          <button class="admin-btn export" id="adminExportBtn">⬇ Export to Excel</button>
+          <button class="admin-btn clear" id="adminClearBtn">🗑 Clear All</button>
+          <span class="admin-count" id="adminCount">0 bookings</span>
+        </div>
+
+        <div class="admin-table-wrap">
+          <table class="admin-table" id="adminTable">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Service</th>
+                <th>Date</th>
+                <th>Address</th>
+                <th>Submitted At</th>
+              </tr>
+            </thead>
+            <tbody id="adminTableBody"></tbody>
+          </table>
+          <div class="admin-empty" id="adminEmptyMsg">No bookings yet.</div>
+        </div>
+
+      </div>
     </div>
 
   </div>
@@ -659,7 +969,68 @@
       });
     });
 
+    // --- EXCEL EXPORT LOGIC ---
+
+    const BOOKINGS_STORAGE_KEY = 'cleanline_bookings';
+
+    // Load existing bookings (if any) from browser storage
+    function loadBookings(){
+      try{
+        const raw = localStorage.getItem(BOOKINGS_STORAGE_KEY);
+        return raw ? JSON.parse(raw) : [];
+      }catch(e){
+        return [];
+      }
+    }
+
+    // Save bookings array back to browser storage
+    function saveBookings(bookings){
+      localStorage.setItem(BOOKINGS_STORAGE_KEY, JSON.stringify(bookings));
+    }
+
+    // Build and download the Excel file from the bookings array
+    function exportBookingsToExcel(bookings){
+      const worksheetData = bookings.map((b, index) => ({
+        'No.': index + 1,
+        'Full Name': b.name,
+        'Email Address': b.email,
+        'Phone Number': b.phone,
+        'Service': b.service,
+        'Booking Date': b.date,
+        'Address': b.address,
+        'Submitted At': b.submittedAt
+      }));
+
+      const worksheet = XLSX.utils.json_to_sheet(worksheetData);
+
+      // Set reasonable column widths
+      worksheet['!cols'] = [
+        { wch: 5 },   // No.
+        { wch: 22 },  // Full Name
+        { wch: 26 },  // Email
+        { wch: 16 },  // Phone
+        { wch: 20 },  // Service
+        { wch: 14 },  // Date
+        { wch: 35 },  // Address
+        { wch: 20 }   // Submitted At
+      ];
+
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, 'Bookings');
+
+      XLSX.writeFile(workbook, 'Cleanline_Bookings.xlsx');
+    }
+
+    // --- BOOKING FORM SUBMIT ---
+
+    // Your Google Apps Script Web App URL (writes directly into your Google Sheet)
+    const GOOGLE_SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycby0r-UvFUAQ7f3kWFZpZfH_Vk5y4gRcOF_bB8KZWhXfe-gZ5WbMaj7VvSa6iA0fuy-5/exec';
+
     const bookingForm = document.getElementById('bookingForm');
+    const confirmOverlay = document.getElementById('confirmOverlay');
+    const confirmCloseBtn = document.getElementById('confirmCloseBtn');
+    const submitBtn = document.getElementById('submitBtn');
+
     bookingForm.addEventListener('submit', function(e){
       e.preventDefault();
       const name = document.getElementById('name').value;
@@ -669,18 +1040,146 @@
       const date = document.getElementById('date').value;
       const address = document.getElementById('address').value;
 
-      const isArabic = document.body.classList.contains('arabic');
-      let message = '';
+      const newBooking = {
+        name,
+        email,
+        phone,
+        service,
+        date,
+        address,
+        submittedAt: new Date().toLocaleString()
+      };
 
-      if(isArabic){
-        message = `طلب حجز جديد\nالاسم: ${name}\nالبريد الإلكتروني: ${email}\nرقم الهاتف: ${phone}\nالخدمة: ${service}\nتاريخ الحجز: ${date}\nالعنوان: ${address}`;
+      // Disable the button briefly so customers can't double-submit
+      submitBtn.disabled = true;
+      const originalBtnText = submitBtn.innerText;
+      submitBtn.innerText = '...';
+
+      // Send the booking straight to your Google Sheet
+      fetch(GOOGLE_SHEET_WEB_APP_URL, {
+        method: 'POST',
+        mode: 'no-cors', // Apps Script web apps don't return CORS headers; we fire-and-forget
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify(newBooking)
+      })
+      .catch((err) => {
+        console.error('Could not reach Google Sheet:', err);
+      })
+      .finally(() => {
+        // Also keep a local backup copy (visible in the Admin Panel / Excel export)
+        const bookings = loadBookings();
+        bookings.push(newBooking);
+        saveBookings(bookings);
+
+        submitBtn.disabled = false;
+        submitBtn.innerText = originalBtnText;
+
+        // Show the customer a confirmation message
+        confirmOverlay.classList.add('show');
+        bookingForm.reset();
+      });
+    });
+
+    confirmCloseBtn.addEventListener('click', () => {
+      confirmOverlay.classList.remove('show');
+      scrollToSection('homeSection');
+      updateActiveNav('navHomeBtn');
+    });
+
+    // --- ADMIN PANEL LOGIC ---
+
+    const ADMIN_PASSWORD = 'admin123'; // change this to your own password
+
+    const adminLinkBtn = document.getElementById('adminLinkBtn');
+    const adminOverlay = document.getElementById('adminOverlay');
+    const adminCloseBtn = document.getElementById('adminCloseBtn');
+    const adminLoginScreen = document.getElementById('adminLoginScreen');
+    const adminDashboardScreen = document.getElementById('adminDashboardScreen');
+    const adminPasswordInput = document.getElementById('adminPasswordInput');
+    const adminLoginBtn = document.getElementById('adminLoginBtn');
+    const adminLoginError = document.getElementById('adminLoginError');
+    const adminExportBtn = document.getElementById('adminExportBtn');
+    const adminClearBtn = document.getElementById('adminClearBtn');
+    const adminTableBody = document.getElementById('adminTableBody');
+    const adminCount = document.getElementById('adminCount');
+    const adminEmptyMsg = document.getElementById('adminEmptyMsg');
+    const adminTable = document.getElementById('adminTable');
+
+    adminLinkBtn.addEventListener('click', () => {
+      adminOverlay.classList.add('show');
+      adminLoginScreen.style.display = 'block';
+      adminDashboardScreen.style.display = 'none';
+      adminPasswordInput.value = '';
+      adminLoginError.style.display = 'none';
+    });
+
+    adminCloseBtn.addEventListener('click', () => {
+      adminOverlay.classList.remove('show');
+    });
+
+    adminLoginBtn.addEventListener('click', attemptAdminLogin);
+    adminPasswordInput.addEventListener('keyup', (e) => {
+      if(e.key === 'Enter') attemptAdminLogin();
+    });
+
+    function attemptAdminLogin(){
+      if(adminPasswordInput.value === ADMIN_PASSWORD){
+        adminLoginScreen.style.display = 'none';
+        adminDashboardScreen.style.display = 'block';
+        renderAdminTable();
       }else{
-        message = `New Booking Request\nFull Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\nBooking Date: ${date}\nAddress: ${address}`;
+        adminLoginError.style.display = 'block';
+      }
+    }
+
+    function renderAdminTable(){
+      const bookings = loadBookings();
+      adminCount.innerText = bookings.length + (bookings.length === 1 ? ' booking' : ' bookings');
+
+      if(bookings.length === 0){
+        adminTable.style.display = 'none';
+        adminEmptyMsg.style.display = 'block';
+        return;
       }
 
-      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-      window.location.href = whatsappURL;
-      bookingForm.reset();
+      adminTable.style.display = 'table';
+      adminEmptyMsg.style.display = 'none';
+
+      adminTableBody.innerHTML = bookings.map((b, index) => `
+        <tr>
+          <td>${index + 1}</td>
+          <td>${escapeHtml(b.name)}</td>
+          <td>${escapeHtml(b.email)}</td>
+          <td>${escapeHtml(b.phone)}</td>
+          <td>${escapeHtml(b.service)}</td>
+          <td>${escapeHtml(b.date)}</td>
+          <td>${escapeHtml(b.address)}</td>
+          <td>${escapeHtml(b.submittedAt)}</td>
+        </tr>
+      `).join('');
+    }
+
+    function escapeHtml(str){
+      if(str === undefined || str === null) return '';
+      const div = document.createElement('div');
+      div.innerText = str;
+      return div.innerHTML;
+    }
+
+    adminExportBtn.addEventListener('click', () => {
+      const bookings = loadBookings();
+      if(bookings.length === 0){
+        alert('There are no bookings to export yet.');
+        return;
+      }
+      exportBookingsToExcel(bookings);
+    });
+
+    adminClearBtn.addEventListener('click', () => {
+      if(confirm('Are you sure you want to clear ALL bookings? This cannot be undone.')){
+        saveBookings([]);
+        renderAdminTable();
+      }
     });
 
     const viewAllBtn = document.getElementById('viewAllBtn');
